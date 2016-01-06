@@ -35,6 +35,10 @@ It can do
                      [:SWP])))
 ```
 
+```clojure
+(read-cmds-from-file "./resources/instr.txt")
+```
+
 ## TODO
 
 
