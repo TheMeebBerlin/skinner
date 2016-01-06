@@ -38,7 +38,15 @@
 
 (defn read-commands
   [xs]
-  (if (not= (peek xs) nil)
-    (do (parse (peek xs))
-      (read-commands (pop xs)))))
+  (if (not= (first xs) nil)
+    (do (parse (first xs))
+      (read-commands (rest xs)))))
+
+(defn read-cmds-from-file
+  [file]
+  (read-commands
+   (mapv read-string
+         (clojure.string/split
+          (slurp file) #"\n"))))
+
 
